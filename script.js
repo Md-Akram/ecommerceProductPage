@@ -62,7 +62,7 @@ function updateImg() {
 const plus = document.querySelector('.plus-btn')
 const minus = document.querySelector('.minus-btn')
 const num = document.querySelector('.num')
-let q = 0
+let q = 1
 
 plus.addEventListener('click', () => {
   q++
@@ -74,8 +74,8 @@ minus.addEventListener('click', () => {
 })
 
 function updateQuantity() {
-  if (q < 0) {
-    q = 0
+  if (q < 1) {
+    q = 1
   }
   num.textContent = q
 }
@@ -87,11 +87,8 @@ const cartDetails = document.querySelector('.basket-middle')
 const productName = document.getElementById('product-name').textContent
 const productPrice = document.getElementById('product-price').textContent
 
-let uniqueIds = []
-
 addToCart.addEventListener('click', () => {
   const uniqueId = Math.floor(Math.random() * 100)
-
   cartDetails.innerHTML += `
   <div class="basket-middle-top" id='${uniqueId}'>
                 <img
@@ -106,7 +103,7 @@ addToCart.addEventListener('click', () => {
                   <img src="images/icon-delete.svg" alt="delete" />
                 </div>
                 </div>
-                `
+  `
 
   // Removing from cart
   let bins = document.querySelectorAll('.bin')
